@@ -127,11 +127,15 @@ public class DisplayMessageActivity extends AppCompatActivity {
         for(int i = 0; i < translated.length(); i++) {
             if(translated.charAt(i) == '.'){
                 sound.play(dot, 1, 1, 1, 0, 1);
+                SystemClock.sleep(200);
             }
             else if(translated.charAt(i) == '-'){
                 sound.play(dash, 1, 1, 1, 0, 1);
+                SystemClock.sleep(400);
             }
-            SystemClock.sleep(600);
+            else if(translated.charAt(i) == ' ')
+                SystemClock.sleep(300);
+
         }
 
 

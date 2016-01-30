@@ -22,8 +22,13 @@ public class
     public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        onCreateDrawer();
+    }
+    //Bundle savedInstanceState
+    protected void onCreateDrawer() {
+        //super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -87,6 +92,8 @@ public class
 
         if (id == R.id.nav_send) {
             // Handle the camera action
+            Intent intent = new Intent(MainActivity.this, SendActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -99,10 +106,11 @@ public class
     }
 
     public void sendMessage(View view) {
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
+        Intent intent = new Intent(MainActivity.this, DisplayMessageActivity.class);
         EditText editText = (EditText) findViewById(R.id.editText1);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
+
 }

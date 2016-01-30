@@ -18,7 +18,8 @@
         android:text="Let&apos;s Go To The Dining Hall!"
         android:layout_above="@+id/button2"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="42dp" />
+        android:layout_marginBottom="42dp"
+        android:singleLine="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -47,4 +48,13 @@
         android:id="@+id/button3" 
         android:layout_below="@+id/button"
         android:onClick="sendMessage" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_message"
+        android:singleLine="true">
+    </EditText>
+
 </RelativeLayout>

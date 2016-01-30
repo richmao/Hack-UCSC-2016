@@ -45,5 +45,6 @@
         android:layout_centerHorizontal="true" 
         android:text="Maybe" 
         android:id="@+id/button3" 
-        android:layout_below="@+id/button"/>
+        android:layout_below="@+id/button"
+        android:onClick="sendMessage" />
 </RelativeLayout>

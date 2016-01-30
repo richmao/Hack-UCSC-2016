@@ -42,7 +42,6 @@ public class DisplayMessageActivity extends AppCompatActivity {
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.content);
         layout.addView(textView);
 
-        soundMorse();
     }
 
     public String translate (String s) {
@@ -137,7 +136,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     }
 
-    public void soundMorse(){
+    public void soundMorse(View view){ //MAke sure that sound doesn't play concurrently, do this by having a value, boolean isPlaying
         AudioAttributes aa = new AudioAttributes.Builder()
                 .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
                 .setUsage(AudioAttributes.USAGE_GAME)

@@ -1,6 +1,8 @@
 package com.rjvproj.universalcommunicator;
 
+import android.media.AudioManager;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,9 +11,11 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.media.SoundPool;
+import android.media.AudioAttributes;
 
 public class DisplayMessageActivity extends AppCompatActivity {
-
+    String translated;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,16 +36,18 @@ public class DisplayMessageActivity extends AppCompatActivity {
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         TextView textView = new TextView(this);
         textView.setTextSize(40);
-        textView.setText(translate(message));
+        translated = translate(message);
+        textView.setText(translated);
 
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.content);
         layout.addView(textView);
 
+        soundMorse();
     }
 
     public String translate (String s) {
         // Goes through entire message and converts into morse code (character by character)
-        String str = "";
+        String str = " ";
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (c == 'a' || c == 'A') {
@@ -131,6 +137,31 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     }
 
+    public void soundMorse(){
+        AudioAttributes aa = new AudioAttributes.Builder()
+                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                .setUsage(AudioAttributes.USAGE_GAME)
+                .build();
+        SoundPool sound = new SoundPool.Builder()
+                .setMaxStreams(10)
+                .setAudioAttributes(aa)
+                .build();
 
+        int dash = sound.load(this, R.raw.longbeep, 1);
+
+        int dot = sound.load(this, R.raw.shortbeep, 1);
+
+        for(int i = 0; i < translated.length(); i++) {
+            if(translated.charAt(i) == '.'){
+                sound.play(dot, 1, 1, 1, 0, 1);
+            }
+            else if(translated.charAt(i) == '-'){
+                sound.play(dash, 1, 1, 1, 0, 1);
+            }
+            SystemClock.sleep(600);
+        }
+
+
+    }
 
 }

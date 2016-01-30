@@ -51,83 +51,57 @@ public class DisplayMessageActivity extends AppCompatActivity {
             char c = s.charAt(i);
             if (c == 'a' || c == 'A') {
                 str += ".-";
-            }
-            else if (c == 'b' || c == 'B') {
+            } else if (c == 'b' || c == 'B') {
                 str += "-...";
-            }
-            else if (c == 'c' || c == 'C') {
+            } else if (c == 'c' || c == 'C') {
                 str += "-.-.";
-            }
-            else if (c == 'd' || c == 'D') {
+            } else if (c == 'd' || c == 'D') {
                 str += "-..";
-            }
-            else if (c == 'e' || c == 'E') {
+            } else if (c == 'e' || c == 'E') {
                 str += ".";
-            }
-            else if (c == 'f' || c == 'F') {
+            } else if (c == 'f' || c == 'F') {
                 str += "..-.";
-            }
-            else if (c == 'g' || c == 'G') {
+            } else if (c == 'g' || c == 'G') {
                 str += "--.";
-            }
-            else if (c == 'h' || c == 'H') {
+            } else if (c == 'h' || c == 'H') {
                 str += "....";
-            }
-            else if (c == 'i' || c == 'I') {
+            } else if (c == 'i' || c == 'I') {
                 str += "..";
-            }
-            else if (c == 'j' || c == 'J') {
+            } else if (c == 'j' || c == 'J') {
                 str += ".---";
-            }
-            else if (c == 'k' || c == 'K') {
+            } else if (c == 'k' || c == 'K') {
                 str += "-.-";
-            }
-            else if (c == 'l' || c == 'L') {
+            } else if (c == 'l' || c == 'L') {
                 str += ".-..";
-            }
-            else if (c == 'm' || c == 'M') {
+            } else if (c == 'm' || c == 'M') {
                 str += "--";
-            }
-            else if (c == 'n' || c == 'N') {
+            } else if (c == 'n' || c == 'N') {
                 str += "-.";
-            }
-            else if (c == 'o' || c == 'O') {
+            } else if (c == 'o' || c == 'O') {
                 str += "---";
-            }
-            else if (c == 'p' || c == 'P') {
+            } else if (c == 'p' || c == 'P') {
                 str += ".--.";
-            }
-            else if (c == 'q' || c == 'Q') {
+            } else if (c == 'q' || c == 'Q') {
                 str += "--.-";
-            }
-            else if (c == 'r' || c == 'R') {
+            } else if (c == 'r' || c == 'R') {
                 str += ".-.";
-            }
-            else if (c == 's' || c == 'S') {
+            } else if (c == 's' || c == 'S') {
                 str += "...";
-            }
-            else if (c == 't' || c == 'T') {
+            } else if (c == 't' || c == 'T') {
                 str += "-";
-            }
-            else if (c == 'u' || c == 'U') {
+            } else if (c == 'u' || c == 'U') {
                 str += "..-";
-            }
-            else if (c == 'v' || c == 'V') {
+            } else if (c == 'v' || c == 'V') {
                 str += "...-";
-            }
-            else if (c == 'w' || c == 'W') {
+            } else if (c == 'w' || c == 'W') {
                 str += ".--";
-            }
-            else if (c == 'x' || c == 'X') {
+            } else if (c == 'x' || c == 'X') {
                 str += "-..-";
-            }
-            else if (c == 'y' || c == 'Y') {
+            } else if (c == 'y' || c == 'Y') {
                 str += "-.--";
-            }
-            else if (c == 'z' || c == 'Z') {
+            } else if (c == 'z' || c == 'Z') {
                 str += "--..";
-            }
-            else if (c == ' '){
+            } else if (c == ' '){
                 str += "  ";
             }
             str += " ";

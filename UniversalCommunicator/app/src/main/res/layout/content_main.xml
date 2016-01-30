@@ -39,4 +39,11 @@
         android:contextClickable="true"
         android:singleLine="true"
         android:onClick="setContentView" />
+    <Button 
+        android:layout_height="wrap_content" 
+        android:layout_width="wrap_content" 
+        android:layout_centerHorizontal="true" 
+        android:text="Maybe" 
+        android:id="@+id/button3" 
+        android:layout_below="@+id/button"/>
 </RelativeLayout>

@@ -103,7 +103,44 @@ public class DisplayMessageActivity extends AppCompatActivity {
                 str += "--..";
             } else if (c == ' '){
                 str += "  ";
+            } else if (c == '.'){
+                str += ".-.-.-";
+            } else if (c == ','){
+                str += "--..--";
+            } else if (c == '?'){
+                str += "..--..";
+            } else if (c == '!'){
+                str += "..--.";
+            } else if (c == ':'){
+                str += "---...";
+            } else if (c == '"'){
+                str += ".-..-.";
+            } else if (c == '='){
+                str += "-...-";
+            } else if (c == '1'){
+                str += ".----";
+            } else if (c == '2'){
+                str += "..---";
+            } else if (c == '3'){
+                str += "...--";
+            } else if (c == '4'){
+                str += "....-";
+            } else if (c == '5'){
+                str += ".....";
+            } else if (c == '6'){
+                str += "-....";
+            } else if (c == '7'){
+                str += "--...";
+            } else if (c == '8'){
+                str += "---..";
+            } else if (c == '9'){
+                str += "----.";
+            } else if (c == '0'){
+                str += "-----";
+            } else if (c == '\''){
+                str += "-...-";
             }
+
             str += " ";
         }
         return str;

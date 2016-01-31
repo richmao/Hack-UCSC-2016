@@ -102,6 +102,8 @@ public class
             Intent intent = new Intent(MainActivity.this, SendActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_gallery) {
+            Intent intent = new Intent(MainActivity.this, ConversionTableActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_slideshow) {
 

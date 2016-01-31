@@ -11,7 +11,9 @@
             <item
                 android:id="@+id/nav_gallery"
                 android:icon="@drawable/ic_menu_gallery"
-                android:title="Recieve" />
+                android:title="Conversion Table"
+
+                />
         </menu>
     </item>
     <item android:checkableBehavior="single"

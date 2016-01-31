@@ -34,6 +34,10 @@
             android:name=".SendActivity"
             android:label="@string/title_activity_send"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ConversionTableActivity"
+            android:label="@string/title_activity_conversion_table"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

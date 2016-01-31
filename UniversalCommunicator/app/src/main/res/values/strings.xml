@@ -9,4 +9,5 @@
     <string name="title_activity_display_message">Results</string>
     <string name="title_activity_send">Enter Input</string>
     <string name="title_activity_flash_message">FlashMessageActivity</string>
+    <string name="title_activity_conversion_table">ConversionTableActivity</string>
 </resources>

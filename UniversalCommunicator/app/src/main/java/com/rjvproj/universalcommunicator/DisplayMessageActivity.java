@@ -74,10 +74,20 @@ public class DisplayMessageActivity extends AppCompatActivity implements Callbac
         button.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isLightOn) {
-                    turnOffFlash();
-                } else {
-                    turnOnFlash();
+                turnOnFlash();
+                SystemClock.sleep(2000);
+                turnOffFlash();
+                for(int i = 0; i < translated.length(); i++) {
+                    if (translated.charAt(i) == '.') {
+                        turnOnFlash();
+                        SystemClock.sleep(25);
+                        turnOffFlash();
+                    } else if (translated.charAt(i) == '-') {
+                        turnOnFlash();
+                        SystemClock.sleep(750);
+                        turnOffFlash();
+                    } else if (translated.charAt(i) == ' ')
+                        SystemClock.sleep(1000);
                 }
             }
         });
@@ -292,9 +302,4 @@ public class DisplayMessageActivity extends AppCompatActivity implements Callbac
 
         }
     }
-
-    public void flashMorse(View view) {
-        //Works up till here
-    }
-
 }

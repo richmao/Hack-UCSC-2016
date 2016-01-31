@@ -1,5 +1,12 @@
 package com.rjvproj.universalcommunicator;
-
+/**
+ * @author Vinod Krishnamurthy
+ * @author Richard Mao
+ * @author Jake Runyan
+ * @file SendActivity.java
+ * @version Last Update 31 Jan 2016 4:53am
+ * @description This class represents the page that holds all the sendable options for user input.
+ */
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,6 +32,10 @@ public class SendActivity extends MainActivity{
         Intent intent = getIntent();
     }
 
+    /**
+     * Prompts the DisplayMessageActivity class to run its onCreate method and become visible.
+     * @param view The current viewable page.
+     */
     public void sendMessage(View view) {
         Intent intent = new Intent(SendActivity.this, DisplayMessageActivity.class);
         EditText editText = (EditText) findViewById(R.id.editText1);

@@ -1,5 +1,12 @@
 package com.rjvproj.universalcommunicator;
-
+/**
+ * @author Vinod Krishnamurthy
+ * @author Richard Mao
+ * @author Jake Runyan
+ * @file DisplayMessageActivity.java
+ * @version Last Update 31 Jan 2016 4:44am
+ * @description This class represents the various methods of communication of the converted Morse Code.
+ */
 import android.content.Context;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -29,7 +36,6 @@ public class DisplayMessageActivity extends AppCompatActivity implements Callbac
     String translated;
 
     private boolean isMorsing = false;
-Thread vibThread, stopThread, soundThread;
     private boolean isLightOn = false;
     private Camera camera;
     private Button button;
@@ -73,6 +79,8 @@ Thread vibThread, stopThread, soundThread;
         camera = Camera.open();
         p = camera.getParameters();
 
+
+        //Plays a Morse Code string to the user through a series of long and short flashes of light.
         button.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -157,6 +165,11 @@ Thread vibThread, stopThread, soundThread;
         mHolder = null;
     }
 
+    /**
+     * Translates a string of letters into their Morse Code equivalent.
+     * @param s The input string of letters.
+     * @return The Morse Code String.
+     */
     public String translate (String s) {
         // Goes through entire message and converts into morse code (character by character)
         String str = " ";
@@ -260,7 +273,11 @@ Thread vibThread, stopThread, soundThread;
 
     }
 
-    public void soundMorse(View view){ //MAke sure that sound doesn't play concurrently, do this by having a value, boolean isPlaying
+    /**
+     * Plays a Morse Code string to the user through a series of long and short beeps.
+     * @param view The current viewable page.
+     */
+    public void soundMorse(View view){
         isMorsing = true;
         AudioAttributes aa = new AudioAttributes.Builder()
                 .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
@@ -295,7 +312,10 @@ Thread vibThread, stopThread, soundThread;
 
     }
 
-
+    /**
+     * Plays a Morse Code string to the user through a series of long and short vibrations.
+     * @param view The current viewable page.
+     */
     public void vibrateMorse(View view) {
         isMorsing = true;
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);

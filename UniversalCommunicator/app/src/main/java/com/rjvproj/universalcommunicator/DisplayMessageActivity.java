@@ -29,7 +29,7 @@ public class DisplayMessageActivity extends AppCompatActivity implements Callbac
     String translated;
 
     private boolean isMorsing = false;
-
+Thread vibThread, stopThread, soundThread;
     private boolean isLightOn = false;
     private Camera camera;
     private Button button;
@@ -317,10 +317,6 @@ public class DisplayMessageActivity extends AppCompatActivity implements Callbac
 
         }
     isMorsing = false;
-    }
-
-    public void stopMorsing(View view){
-        isMorsing = false;
     }
 
 }

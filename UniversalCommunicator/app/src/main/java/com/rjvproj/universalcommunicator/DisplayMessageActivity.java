@@ -1,8 +1,10 @@
 package com.rjvproj.universalcommunicator;
 
+import android.content.Context;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.os.Vibrator;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -169,4 +171,22 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     }
 
+
+    public void vibrateMorse(View view) {
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        if (v.hasVibrator()) {
+            for (int i = 0; i < translated.length(); i++) {
+                if (translated.charAt(i) == '.') {
+                    v.vibrate(250);
+                    SystemClock.sleep(350);
+                } else if (translated.charAt(i) == '-') {
+                    v.vibrate(500);
+                    SystemClock.sleep(750);
+                } else if (translated.charAt(i) == ' ')
+                    SystemClock.sleep(750);
+
+            }
+
+        }
+    }
 }

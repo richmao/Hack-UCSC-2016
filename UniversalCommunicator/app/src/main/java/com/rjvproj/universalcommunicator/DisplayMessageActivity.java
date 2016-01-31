@@ -189,4 +189,9 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
         }
     }
+
+    public void flashMorse(View view) {
+        //Works up till here
+    }
+
 }

@@ -20,15 +20,11 @@ public class
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
+    protected DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        onCreateDrawer();
-    }
-    //Bundle savedInstanceState
-    protected void onCreateDrawer() {
-        //super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -42,14 +38,25 @@ public class
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+        onCreateDrawer();
+
+        //Intent intent = new Intent(MainActivity.this, SendActivity.class);
+        //startActivity(intent);
+    }
+    //Bundle savedInstanceState
+    protected void onCreateDrawer() {
+        //super.onCreate(savedInstanceState);
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
     }
 
     @Override
@@ -105,12 +112,5 @@ public class
         return true;
     }
 
-    public void sendMessage(View view) {
-        Intent intent = new Intent(MainActivity.this, DisplayMessageActivity.class);
-        EditText editText = (EditText) findViewById(R.id.editText1);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }
 
 }

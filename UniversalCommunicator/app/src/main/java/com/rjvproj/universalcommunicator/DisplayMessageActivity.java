@@ -1,29 +1,87 @@
 package com.rjvproj.universalcommunicator;
 
 import android.content.Context;
-import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.os.Vibrator;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.SurfaceHolder;
+import android.view.SurfaceHolder.Callback;
+import android.view.SurfaceView;
 import android.view.View;
 import android.content.Intent;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.media.SoundPool;
 import android.media.AudioAttributes;
+import android.hardware.Camera;
+import android.hardware.Camera.Parameters;
+import android.content.pm.PackageManager;
+import android.util.Log;
+import android.widget.Button;
+import android.view.View.OnClickListener;
 
-public class DisplayMessageActivity extends AppCompatActivity {
+import java.io.IOException;
+
+
+public class DisplayMessageActivity extends AppCompatActivity implements Callback {
     String translated;
+
+    private boolean isLightOn = false;
+    private Camera camera;
+    private Button button;
+    private SurfaceHolder mHolder;
+    private Parameters p = null;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        SurfaceView preview = (SurfaceView) findViewById(R.id.surfaceView);
+        mHolder = preview.getHolder();
+        mHolder.addCallback(this);
+    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(camera != null){
+            camera.release();
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        button = (Button) findViewById(R.id.button3);
+
+        Context context = this;
+        PackageManager pm = context.getPackageManager();
+
+        if (!pm.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
+            Log.e("err", "Device has no camera!");
+            return;
+        }
+
+        camera = Camera.open();
+        p = camera.getParameters();
+
+        button.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isLightOn) {
+                    turnOffFlash();
+                } else {
+                    turnOnFlash();
+                }
+            }
+        });
+
 
         Intent intent = getIntent();
         String message = intent.getStringExtra(SendActivity.EXTRA_MESSAGE);
@@ -35,6 +93,51 @@ public class DisplayMessageActivity extends AppCompatActivity {
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.content);
         layout.addView(textView);
 
+
+    }
+
+        private void turnOnFlash(){
+            Log.i("info", "Light Is On!");
+            p.setFlashMode(Parameters.FLASH_MODE_TORCH);
+            camera.setParameters(p);
+            camera.startPreview();
+            isLightOn = true;
+        }
+
+        private void turnOffFlash() {
+            Log.i("info", "Light Is Off!");
+            p.setFlashMode(Parameters.FLASH_MODE_OFF);
+            camera.setParameters(p);
+            camera.stopPreview();
+            isLightOn = false;
+        }
+
+
+
+
+
+
+    @Override
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height){
+
+    }
+
+    @Override
+    public void surfaceCreated(SurfaceHolder holder){
+        mHolder = holder;
+        try{
+            Log.i("SurfaceHolder", "setting preview");
+            camera.setPreviewDisplay(mHolder);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void surfaceDestroyed(SurfaceHolder holder){
+        Log.i("SurfaceHolder", "stopping preview");
+        camera.stopPreview();
+        mHolder = null;
     }
 
     public String translate (String s) {

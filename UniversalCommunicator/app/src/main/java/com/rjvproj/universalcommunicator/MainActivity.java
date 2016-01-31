@@ -73,9 +73,7 @@ public class
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -93,7 +91,8 @@ public class
             startActivity(intent);
 
         } else if (id == R.id.nav_slideshow) {
-
+            Intent intent = new Intent(MainActivity.this, CreditsActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

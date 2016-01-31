@@ -10,5 +10,5 @@
     <string name="title_activity_send">Enter Input</string>
     <string name="title_activity_flash_message">FlashMessageActivity</string>
     <string name="title_activity_conversion_table">ConversionTableActivity</string>
-    <string name="title_activity_credits">CreditsActivity</string>
+    <string name="title_activity_credits">Thanks For Using!</string>
 </resources>

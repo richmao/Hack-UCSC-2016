@@ -28,6 +28,8 @@ import java.io.IOException;
 public class DisplayMessageActivity extends AppCompatActivity implements Callback {
     String translated;
 
+    private boolean isMorsing = false;
+
     private boolean isLightOn = false;
     private Camera camera;
     private Button button;
@@ -74,10 +76,14 @@ public class DisplayMessageActivity extends AppCompatActivity implements Callbac
         button.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                isMorsing = true;
                 turnOnFlash();
                 SystemClock.sleep(2000);
                 turnOffFlash();
                 for(int i = 0; i < translated.length(); i++) {
+                    if(!isMorsing){
+                        break;
+                    }
                     if (translated.charAt(i) == '.') {
                         turnOnFlash();
                         SystemClock.sleep(25);
@@ -89,6 +95,7 @@ public class DisplayMessageActivity extends AppCompatActivity implements Callbac
                     } else if (translated.charAt(i) == ' ')
                         SystemClock.sleep(1000);
                 }
+                isMorsing = false;
             }
         });
 
@@ -254,6 +261,7 @@ public class DisplayMessageActivity extends AppCompatActivity implements Callbac
     }
 
     public void soundMorse(View view){ //MAke sure that sound doesn't play concurrently, do this by having a value, boolean isPlaying
+        isMorsing = true;
         AudioAttributes aa = new AudioAttributes.Builder()
                 .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
                 .setUsage(AudioAttributes.USAGE_GAME)
@@ -268,6 +276,9 @@ public class DisplayMessageActivity extends AppCompatActivity implements Callbac
         int dot = sound.load(this, R.raw.shortbeep, 1);
 
         for(int i = 0; i < translated.length(); i++) {
+            if(!isMorsing){
+                break;
+            }
             if(translated.charAt(i) == '.'){
                 sound.play(dot, 1, 1, 1, 0, 1);
                 SystemClock.sleep(200);
@@ -280,15 +291,19 @@ public class DisplayMessageActivity extends AppCompatActivity implements Callbac
                 SystemClock.sleep(300);
 
         }
-
+        isMorsing = false;
 
     }
 
 
     public void vibrateMorse(View view) {
+        isMorsing = true;
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         if (v.hasVibrator()) {
             for (int i = 0; i < translated.length(); i++) {
+                if(!isMorsing){
+                    break;
+                }
                 if (translated.charAt(i) == '.') {
                     v.vibrate(250);
                     SystemClock.sleep(350);
@@ -301,5 +316,11 @@ public class DisplayMessageActivity extends AppCompatActivity implements Callbac
             }
 
         }
+    isMorsing = false;
     }
+
+    public void stopMorsing(View view){
+        isMorsing = false;
+    }
+
 }

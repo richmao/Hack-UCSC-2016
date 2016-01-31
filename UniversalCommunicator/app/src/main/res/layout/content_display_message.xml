@@ -14,15 +14,14 @@
     android:id="@+id/content">
 
     <Button
-
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sound"
-        android:id="@+id/button4"
-        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:text="Flash!"
+        android:id="@+id/button3"
+        android:onClick="flashMorse"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="73dp"
-        android:onClick="soundMorse" />
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="5dp"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -30,18 +29,30 @@
         android:layout_height="wrap_content"
         android:text="Vibrate"
         android:id="@+id/button2"
-        android:layout_above="@+id/button4"
+        android:onClick="vibrateMorse"
+        android:layout_below="@id/button3"
         android:layout_centerHorizontal="true"
-        android:onClick="vibrateMorse"/>
+        android:layout_marginBottom="5dp"/>
 
     <Button
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="Flash!"
-        android:id="@+id/button3"
-        android:onClick="flashMorse"
-        android:layout_above="@+id/button2"
-        android:layout_centerHorizontal="true"/>
+        android:layout_height="wrap_content"
+        android:text="Sound"
+        android:id="@+id/button4"
+        android:onClick="soundMorse"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stopbutton"
+        android:text="Stop"
+        android:onClick="stopMorsing"
+        android:layout_below="@+id/button4"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/colorPrimary"/>
 
     <SurfaceView
         android:layout_width="1dp"

@@ -12,14 +12,7 @@
     tools:context="com.rjvproj.universalcommunicator.SendActivity"
     tools:showIn="@layout/activity_send">
 
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Translate!"
-        android:id="@+id/button3"
-        android:onClick="sendMessage"
-        android:layout_below="@+id/editText1"
-        android:layout_centerHorizontal="true" />
+
 
 
     <EditText
@@ -29,6 +22,18 @@
         android:hint="@string/edit_message"
         android:singleLine="true">
     </EditText>
+
+    <ImageButton
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:id="@+id/button3"
+        android:layout_below="@+id/editText1"
+        android:onClick="sendMessage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dip"
+        android:layout_marginLeft="50dip"
+        android:padding="100dip"
+        android:src="@drawable/button_translate" />
 
 
 </RelativeLayout>

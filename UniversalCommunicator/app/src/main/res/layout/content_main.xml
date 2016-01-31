@@ -12,30 +12,4 @@
     tools:context="com.rjvproj.universalcommunicator.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Dot Dash"
-        android:id="@+id/textView2"
-        android:layout_marginTop="80dp"
-        android:textSize="48dp"
-        android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="In certain situations, Morse Code can be the difference between life and death. Dot Dash converts text input into various peripheral outputs, represented in morse code.\n\nThe original inspiration for building this was for victims of natural disasters, where ability to use cell service or GPS locating is nonexistent. This app allows the average person to take advantage of an age old system of communication.\n\nEmergency distress code:\nSOS"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentStart="true" />
-
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_centerHorizontal="true"></GridLayout>
 </RelativeLayout>

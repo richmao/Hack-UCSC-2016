@@ -16,9 +16,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Helllo"
+        android:text="&lt;Program Title>"
         android:id="@+id/textView2"
+        android:layout_marginTop="80dp"
+        android:textSize="48dp"
+        android:textStyle="bold"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="136dp" />
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="In certain situations, Morse Code can be the difference between life and death. The &lt;Program Title> converts text input into various peripheral outputs, represented in morse code.\n\nStuck behind a wall?\n Use the Vibration Morse Translator to propegate your messages through the thickest of walls!\n\nStuck underwater? \nUse the Sonar Morse Translator to beam your message through the oceans!\n\nThe Possibilities are ENDLESS when you use &lt;Program Title>!"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
